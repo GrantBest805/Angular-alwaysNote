@@ -1,0 +1,8 @@
+<h2>Always Note</h2>
+<hr>
+<app-note-new (addNoteEvent)="addNote($event)"></app-note-new>
+<app-note-list 
+    [childComponentNotes]="notes" 
+    (deleteNoteEvent)="deleteNote($event)"
+    (updateNoteEvent)="updateNote($event)"
+    ></app-note-list>

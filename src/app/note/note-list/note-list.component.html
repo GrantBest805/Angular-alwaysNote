@@ -1,0 +1,23 @@
+<h3>All Notes</h3>
+<table class="table table-bordered" >
+    <tr>
+      <th>Id</th>
+      <th>Note</th>
+      <th>Date Created</th>
+      <th>Date Updated</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let note of childComponentNotes">
+      <th>{{note.id}}</th>
+      <th>{{note.note}}</th>
+      <th>{{note.createdAt | date: 'short'}}</th>
+      <th>{{note.updatedAt | date: 'short'}}</th>
+      <th><button (click)="deleteNote(note)">Delete</button>  <button (click)="note.edit = !note.edit" >Edit</button></th>
+    </tr> 
+</table>
+    <div *ngFor="let note of childComponentNotes">
+      <app-note-edit *ngIf="note.edit" [currentNote]='note' (updateNoteEvent)="updateNote($event)"></app-note-edit>
+    </div>
+   
+
+
